@@ -1,7 +1,7 @@
-# bitsom_ba_25071955-fleximart-data-architecture
-Fleximart Data architecture assignment.
+# bitsom_ba_25071955-sales-analytics-system
+Sales Analytics System assignment.
 
-# FlexiMart Data Architecture Project
+# Sales Analytics System 
 
 **Student Name:** Priya Tushar Mahajan  
 **Student ID:** 25071955  
@@ -12,105 +12,101 @@ Fleximart Data architecture assignment.
 
 ## Project Overview
 
-The FlexiMart Data Architecture Project demonstrates the design and implementation of a complete data pipeline, including ETL processing, NoSQL data modeling, and data warehouse analytics. The project focuses on cleaning raw transactional data, storing structured and semi-structured data, and enabling analytical insights through optimized schemas and queries.
+The Sales Analytics System is a Python-based data processing and reporting application designed to analyze raw sales transaction data and generate meaningful business insights. The system processes structured sales records, performs multiple levels of analysis, enriches product data using an external API, and produces a comprehensive, human-readable sales report.
+
+This project demonstrates end-to-end data handling, including file processing, data validation, aggregation, API integration, and report generation, making it suitable for real-world analytics use cases
 
 ---
 
-## Repository Structure
+## 🔑 Key Features
 
-├── part1-database-etl/
-│ ├── etl_pipeline.py
-│ ├── schema_documentation.md
-│ ├── business_queries.sql
-│ └── data_quality_report.txt
-│
-├── part2-nosql/
-│ ├── nosql_analysis.md
-│ ├── mongodb_operations.js
-│ └── products_catalog.json
-│
-├── part3-datawarehouse/
-│ ├── star_schema_design.md
-│ ├── warehouse_schema.sql
-│ ├── warehouse_data.sql
-│ └── analytics_queries.sql
-│
-└── README.md
-
+- **Data Ingestion:** Reads raw sales data from text files with error handling.
+- **Parsing & Validation:** Cleans and validates transaction records.
+- **Sales Analysis:** Computes total revenue, average order value, region-wise sales, top products, top customers, and daily sales trends.
+- **API Data Enrichment:** Enriches transactions with product category, brand, and rating from an external API.
+- **Report Generation:** Creates a formatted sales analytics report including overall summary, region-wise performance, top products/customers, daily trends, and enrichment statistics.
+- **Modular Design:** Organized into reusable Python modules for maintainability and scalability.
 
 ---
 
-## Technologies Used
+## 🗂️ Project Structure
 
-- **Programming Language:** Python 3.x  
-- **Libraries:** pandas, mysql-connector-python  
-- **Relational Database:** MySQL 8.0  
-- **NoSQL Database:** MongoDB 6.0  
-- **Data Modeling:** Star Schema (Fact & Dimension tables)
+sales-analytics-system/
+│
+├── data/
+│ ├── sales_data.txt # Raw sales transactions
+│ └── enriched_sales_data.txt # Enriched transaction data
+│
+├── output/
+│ └── sales_report.txt # Generated sales report
+│
+├── utils/
+│ ├── file_handler.py # File read/write and parsing functions
+│ ├── data_processor.py # Analysis functions
+│ └── api_handler.py # API fetching and data enrichment
+│
+├── main.py # Main execution script
+└── README.md # Project documentation
 
 ---
 
-## Setup Instructions
+## 🛠️ Technologies Used
 
-### Prerequisites
-- Python 3.x installed
-- MySQL Server running
-- MongoDB installed and running
-- Required Python packages installed:
-  ```bash
-  pip install pandas mysql-connector-python
+- Python 3
+- File handling and data processing
+- REST API integration for product enrichment
+- Modular programming with reusable utility modules
+- Exception handling and input validation
 
-# Database Setup (MySQL)
-# ############################
-# Create transactional and warehouse databases
-mysql -u root -p -e "CREATE DATABASE fleximart;"
-mysql -u root -p -e "CREATE DATABASE fleximart_dw;"
+---
 
-# Run Part 1 - ETL Pipeline
-python part1-database-etl/etl_pipeline.py
+## 🚀 Workflow
 
-# Execute business queries
-mysql -u root -p fleximart < part1-database-etl/business_queries.sql
+1. **Read Sales Data:** Load transactions from a pipe-delimited file.
+2. **Parse & Clean:** Convert raw records into structured transactions.
+3. **Filter Options:** Optional region and transaction amount filtering.
+4. **Validate Transactions:** Identify valid and invalid records.
+5. **Perform Analysis:** Customer, product, and region analysis, revenue metrics, daily trends.
+6. **Fetch API Data:** Retrieve product info from external API.
+7. **Enrich Transactions:** Add product category, brand, and rating to transactions.
+8. **Save Enriched Data:** Save enriched transactions to a file.
+9. **Generate Report:** Create a formatted sales report including all summaries and analysis.
+10. **Completion:** Output success messages and file paths.
 
+---
 
-# Data Warehouse Setup
-# #####################
-# Create warehouse schema
-mysql -u root -p fleximart_dw < part3-datawarehouse/warehouse_schema.sql
+## 🎯 Learning Outcomes
 
-# Load warehouse data
-mysql -u root -p fleximart_dw < part3-datawarehouse/warehouse_data.sql
+- Practical understanding of end-to-end sales data processing
+- Experience with API integration and data enrichment
+- Ability to analyze sales metrics across multiple dimensions
+- Skills in generating professional, formatted reports
+- Modular Python programming and error handling
 
-# Run analytics queries
-mysql -u root -p fleximart_dw < part3-datawarehouse/analytics_queries.sql
+---
 
+## 💡 Use Cases
 
-# MongoDB Setup
-# #####################
-mongosh < part2-nosql/mongodb_operations.js
+- Business intelligence and sales performance tracking
+- Academic assignments and Python analytics projects
+- Entry-level data analytics training
+- Demonstration of Python programming and API usage
 
-# ################Key Learnings##################
+---
 
-Designed and implemented a complete ETL pipeline with data validation and error handling.
+## ⚡ How to Run
 
-Gained hands-on experience in relational and NoSQL data modeling.
+1. Clone the repository:
+```bash
+git clone git@github.com:PriyaMJN/sales-analytics-system.git
+cd sales-analytics-system
 
-Learned how to design and query a star schema for analytical reporting.
+2. Install required dependencies (if any):
+pip install -r requirements.txt
 
-Improved understanding of real-world data quality challenges and solutions.
+3. Run the main script:
+python main.py
 
-
-# ######################## Challenges Faced #####################
-
-Handling inconsistent and missing data:
-Solved by implementing validation checks and removing invalid records during ETL.
-
-Integrating multiple data storage systems:
-Addressed by separating transactional, NoSQL, and warehouse layers with clear responsibilities.
-
-Authentication and GitHub version control issues:
-Resolved using GitHub Personal Access Tokens and proper Git workflows.
-
-# Conclusion
-
-This project provides an end-to-end understanding of modern data architecture concepts, combining ETL processing, NoSQL storage, and data warehousing techniques to support business analytics.
+4. Output:
+Enriched transaction data → data/enriched_sales_data.txt
+Sales report → output/sales_report.txt
