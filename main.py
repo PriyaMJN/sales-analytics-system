@@ -58,7 +58,7 @@ def main():
         print(f"✓ Valid: {len(valid_txns)} | Invalid: {invalid_count}")
         print("Validation Summary:", summary)
 
-        # 5. Perform analysis
+        # 5. Perform analysis 
         print("\n[5/10] Analyzing sales data...")
         total_revenue = calculate_total_revenue(valid_txns)
         region_wise_sales(valid_txns)
