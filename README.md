@@ -85,15 +85,6 @@ sales-analytics-system/
 
 ---
 
-## 💡 Use Cases
-
-- Business intelligence and sales performance tracking
-- Academic assignments and Python analytics projects
-- Entry-level data analytics training
-- Demonstration of Python programming and API usage
-
----
-
 ## ⚡ How to Run
 
 1. Clone the repository:
